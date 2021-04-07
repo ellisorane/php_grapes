@@ -114,7 +114,7 @@
             <!-- GRAPE ITEM COL END  -->
         </div>
         <div class="see-more-div text-center">
-          <a href="Shop.php" class="btn btn-primary btn-lg see-more">Shop</a>
+          <a href="shop.php" class="btn btn-primary btn-lg see-more">Shop</a>
         </div>
     </div>
     <!-- HOT GRAPES END -->

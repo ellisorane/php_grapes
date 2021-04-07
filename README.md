@@ -6,3 +6,5 @@ Functionalities will include:
 * Adding and removing items in cart
 * Ordering items 
 * Updating inventory with admin credentials
+
+See live version here: http://bettermentgroup.org/grapes/index.php
