@@ -12,12 +12,11 @@
     <!-- NAVBAR ENDS -->
 
     <!-- SHOWCASE STARTS -->
-    <div class="container-fluid showcase">
-        
+    <div class="container-fluid showcase d-flex justify-content-center align-items-center">
+      <h1 class="display-1 text-white">GET YA GRAPES</h1>
     </div>
     <!-- SHOWCASE ENDS -->
 
-    <!-- HOT GRAPES STARTS -->
     <!-- SHOP START  -->
     <div class="container-fluid shop pb-5">
       <div class="row">
@@ -27,6 +26,8 @@
                 <div class="row shop-row mt-5">
                     
                 <?php
+
+                    addToCart();
             
                     // GRAB HOT GRAPES 
                     $query = "SELECT * FROM inventory ";
@@ -61,17 +62,20 @@
                                         <p class='float-start'>Quantity</p>
                                     </div>
                                     <div class='col'>
-                                        <select class='grape-quantity'>";
+                                        <form action='' method='post'>
+                                        <input name='item_id' class='d-none' value='$item_id' >
+                                        <select class='grape-quantity' name='item_quantity'>";
                                         $i = 1;
                                         while($i <= $item_stock_level) {
                                             echo "<option value='$i'>$i</option>";
                                             $i++;
                                         }
-                                        echo "</select>
-                                    </div>
-                                    <div class='col'>
-                                        <buttton class='btn btn-primary'>Add to Cart</buttton>
-                                    </div>
+                                        echo"</select>
+                                        </div>
+                                        <div class='col'>
+                                        <button class='btn btn-primary' type='submit' name='add'>Add to Cart</button>
+                                        </div>
+                                    </form>
                                     </div>
                                 </div>  
                                 </div>
@@ -103,7 +107,7 @@
                                     </select>
                                     </div>
                                     <div class='col'>
-                                        <buttton class='btn btn-primary'>Add to Cart</buttton>
+                                        <button class='btn btn-primary' disabled='true'>Add to Cart</button>
                                     </div>
                                     </div>
                                 </div>  
@@ -123,9 +127,6 @@
      
     </div>
     <!-- SHOP END  -->
-
-            
-
 
          
 

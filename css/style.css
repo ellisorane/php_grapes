@@ -8,8 +8,17 @@ nav {
 
 }
 
+
 nav form {
     font-size: 25px;
+}
+
+.cart-item-amount {
+    color: black;
+    border: none;
+    background-color: rgb(228, 228, 228);
+    border-radius: 100%;
+    padding: 4px 9px;
 }
 
 li {
@@ -26,8 +35,8 @@ li {
     background-color:  rgb(161, 10, 161);
     min-height: 50vh;
     width: 100%;
-    /* background: linear-gradient(rgba(0, 0, 0, 0.7),  rgba(0, 0, 0, 0.7)), url('../media/showcase_img.jpg'); */
-    background-image: url('../media/showcase_img.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url('../media/showcase_img.jpg');
+    /* background-image: url('../media/showcase_img.jpg'); */
     background-position: center;
     background-size: cover;
     
@@ -71,13 +80,13 @@ li {
     color: white;
 }
 
-.about-our-grapes, .shop {
+.about-our-grapes, .shop, .cart {
     background-color: rgb(213, 19, 213);
     min-height: 700px;
     width: 100%;
 }
 
-.about-our-grapes-info-div, .shop-div {
+.about-our-grapes-info-div, .shop-div, .cart-div {
     background-color: rgb(110, 4, 110);
     padding: 30px 30px ;
     border-radius: 5px;
@@ -91,6 +100,28 @@ li {
 .learn-more:hover {
     color: rgb(211, 202, 124);
 }
+
+/* CART  */
+.cart-items {
+    color: white;
+}
+
+.cart-item {
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cart-img {
+    max-height: 150px;
+    max-width: 200px;
+}
+
+.checkout {
+    width: fit-content;
+    margin: auto;
+}
+
 
 footer {
     background-color: black;
@@ -138,3 +169,30 @@ footer {
     background: #125688;
     color: white;
   }
+
+@media(max-width: 650px) {
+    /* CART  */
+    .cart {
+        font-size: 9px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .cart-div {
+        border-radius: 0;
+    }
+
+    .cart-items {
+        color: white;
+    }
+
+    .cart-item {
+        border: none;
+    }
+
+    .cart-img {
+        max-height: 60px;
+        max-width: 60px;
+    }
+
+}

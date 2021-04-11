@@ -3,6 +3,8 @@
 ob_start();
 session_start();
 
+include "functions.php";
+
 // USERS CANNOT COME TO THIS PAGE UNLESS THEY ARE LOGGED IN
 // if(!isset($_SESSION["username"])) {
 
