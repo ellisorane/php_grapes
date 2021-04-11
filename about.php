@@ -12,8 +12,8 @@
     <!-- NAVBAR ENDS -->
 
     <!-- SHOWCASE STARTS -->
-    <div class="container-fluid showcase">
-        
+    <div class="container-fluid showcase d-flex justify-content-center align-items-center">
+      <h1 class="display-1 text-white">GET YA GRAPES</h1>
     </div>
     <!-- SHOWCASE ENDS -->
 
