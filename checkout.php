@@ -23,7 +23,7 @@
                     <h1 class="text-white display-2 text-center pb-5">🍇Checkout🍇</h1>
                     <div class="row mt-5">
 
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <h1>Billing details</h1>
                             <form>
                                 <div class="mb-3">
@@ -58,10 +58,11 @@
 
                         </div>
 
+                        <div class="col-md-1"></div>
+
                         <div class="col-md-6">
                             <div class="col cart-items">
-                                <!-- CART HEADING  -->
-                                <div class="row cart-heading p-1">
+                                <div class="row cart-heading ">
                                     <div class="col text-center"></div>
                                     <div class="col text-center">Item name</div>
                                     <div class="col text-center">Item Price</div>
@@ -94,7 +95,7 @@
                                         echo "<!-- CART ITEM -->
                                         <div class='row cart-item'>
                                             <div class='col'>
-                                                <img src='media/shop/$cart_item_image' alt='' class='cart-img'>
+                                                <img src='media/shop/$cart_item_image' alt='' class='checkout-img'>
                                             </div>
                                             <div class='col m-auto text-center'>
                                                 $cart_item_name
@@ -136,8 +137,6 @@
                             </div>
 
                         </div>
-                        
-                    </div>
 
                     </div>
                 </div>
