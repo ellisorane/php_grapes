@@ -15,6 +15,12 @@
       <h1 class="display-1 text-white">GET YA GRAPES</h1>
     </div>
 
+    <?php 
+    
+    addUserInfo();
+    
+    ?>
+
     <!-- CHECKOUT -->
     <div class="container-fluid cart pb-5 text-white">
         <div class="row m-0 p-0">
@@ -24,38 +30,85 @@
                     <div class="row mt-5">
 
                         <div class="col-md-5">
-                            <h1>Billing details</h1>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="user_firstname" class="form-label">Firstname</label>
-                                    <input type="text" class="form-control" name="user_firstname">
+
+                        <?php
+
+                            $user_id = $_SESSION["user_id"];
+
+                            $query = "SELECT * FROM users WHERE user_id = '$user_id' ";
+                            $find_user_query = mysqli_query($conn, $query);
+
+                            while ($row = mysqli_fetch_assoc($find_user_query)) {
+                                $user_firstname = $row["user_firstname"];
+                                $user_lastname = $row["user_lastname"];
+                                $user_phone = $row["user_phone"];
+                                $user_state = $row["user_state"];
+                                $user_zip = $row["user_zip"];
+                                $user_card = $row["user_card"];
+                            }
+
+                            if($user_phone) {
+                                echo "<h1>Billing and Shipping details</h1>
+                            
+                                <div class='billing border rounded p-2 mb-2'>
+                                <p><strong>First name</strong>: $user_lastname</p>
+                                <p><strong>Last name</strong>: $user_lastname</p>
+                                <p><strong>Phone</strong>: $user_phone</p>
+                                <p><strong>State</strong>: $user_state</p>
+                                <p><strong>Zipcode</strong>: $user_zip</p>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="user_lastname" class="form-label">Lastname</label>
-                                    <input type="text" class="form-control" name="user_lastname">
+    
+                                <h1>Payment method</h1>
+                                <div class='payment border rounded p-2 mb-4'>
+                                <p><strong>Credit card</strong>: $user_card</p>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="user_phone" class="form-label">Phone number</label>
-                                    <input type="tel" class="form-control" name="user_phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+    
+                                <button type='submit' name='edit' class='btn btn-primary btn-lg mb-3'>Edit</button>
+                                <button type='submit' name='submit' class='btn btn-warning btn-lg mb-3'>Checkout</button>
+                                
+                                
+                                ";
+                            }
+
+                            if(!$user_phone) {
+                                echo "<form action='' method='post'>
+                                <div class='mb-3'>
+                                    <label for='user_firstname' class='form-label'>Firstname</label>
+                                    <input type='text' class='form-control' name='user_firstname'>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="user_state" class="form-label">State</label>
-                                    <input type="text" class="form-control" name="user_state">
+                                <div class='mb-3'>
+                                    <label for='user_lastname' class='form-label'>Lastname</label>
+                                    <input type='text' class='form-control' name='user_lastname'>
                                 </div>
-                                <div class="mb-5">
-                                    <label for="user_zipcode" class="form-label">Zipcode</label>
-                                    <input type="text" class="form-control" name="user_zipcode">
+                                <div class='mb-3'>
+                                    <label for='user_phone' class='form-label'>Phone number</label>
+                                    <input type='tel' class='form-control' name='user_phone''>
+                                </div>
+                                <div class='mb-3'>
+                                    <label for='user_state' class='form-label'>State</label>
+                                    <input type='text' class='form-control' name='user_state'>
+                                </div>
+                                <div class='mb-5'>
+                                    <label for='user_zipcode' class='form-label'>Zipcode</label>
+                                    <input type='text' class='form-control' name='user_zip'>
                                 </div>
 
                                 <h1>Payment method</h1>
-                                <div class="mb-3">
-                                    <label for="user_card" class="form-label">Credit Card</label>
-                                    <input type="text" class="form-control" name="user_card">
+                                <div class='mb-3'>
+                                    <label for='user_card' class='form-label'>Credit Card</label>
+                                    <input type='text' class='form-control' name='user_card'>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                                <button type='submit' name='submit' class='btn btn-primary mb-3'>Submit</button>
                             </form>
 
+                            ";
+
+
+                            }
+                        
+                        ?>
+                            
                         </div>
 
                         <div class="col-md-1"></div>

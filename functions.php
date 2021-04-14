@@ -112,7 +112,7 @@ function login () {
                     $db_user_zip = $row["user_zip"];
                     $db_user_city = $row["user_city"];
                     $db_user_state = $row["user_state"];
-                    $db_user_steet_address = $row["user_street_address"];
+                    $db_card = $row["user_card"];
 
                 }
 
@@ -133,7 +133,7 @@ function login () {
                     $_SESSION["user_zip"] = $db_user_zip;
                     $_SESSION["user_city"] = $db_user_city;
                     $_SESSION["user_state"] = $db_user_state;
-                    $_SESSION["user_steet_address"] = $db_user_steet_address;
+                    $_SESSION["user_card"] = $db_card;
 
                 }
 
@@ -189,4 +189,41 @@ function deleteCartItem() {
         header("Location: cart.php");
 
     }
+}
+
+function addUserInfo() {
+    global $conn;
+
+    if(isset($_POST["submit"])) {
+
+        $user_firstname = mysqli_real_escape_string($conn, $_POST["user_firstname"]);
+        $user_lastname = mysqli_real_escape_string($conn, $_POST["user_lastname"]);
+        $user_phone = mysqli_real_escape_string($conn, $_POST["user_phone"]);
+        $user_state = mysqli_real_escape_string($conn, $_POST["user_state"]);
+        $user_zip = mysqli_real_escape_string($conn, $_POST["user_zip"]);
+        $user_card = mysqli_real_escape_string($conn, $_POST["user_card"]);
+    
+        $user_id = $_SESSION["user_id"];
+    
+        $query = "UPDATE users SET ";
+        $query .= "user_firstname = '$user_firstname', ";
+        $query .= "user_lastname = '$user_lastname', ";
+        $query .= "user_phone = '$user_phone', ";
+        $query .= "user_state = '$user_state', ";
+        $query .= "user_zip = '$user_zip', ";
+        $query .= "user_card = '$user_card' ";
+        $query .= " WHERE user_id = $user_id";
+        $add_user_info = mysqli_query($conn, $query);
+
+        if(!$add_user_info) {
+            echo "ERROR: " . mysqli_error($conn);
+        }
+
+        header("Refresh:0"); 
+
+    }
+
+
+
+
 }
